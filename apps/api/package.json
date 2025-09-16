@@ -14,7 +14,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "db:generate": "npx prisma generate",
-    "db:migrate": "npx prisma migrate dev --name init"
+    "db:migrate": "npx prisma migrate dev --name",
+    "db:push": "npx prisma db push"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.0",
