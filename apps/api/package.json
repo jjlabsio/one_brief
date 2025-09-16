@@ -13,8 +13,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "prisma:generate": "npx prisma generate",
-    "prisma:migrate": "npx prisma migrate dev --name init"
+    "db:generate": "npx prisma generate",
+    "db:migrate": "npx prisma migrate dev --name init"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.0",
