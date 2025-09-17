@@ -16,6 +16,7 @@ export class ArticlesService {
         url: data.url,
         summary: data.summary,
         source: data.source,
+        published_at: data.published_at ?? null,
         tags: {
           connectOrCreate: tagNames.map((tag) => ({
             where: { name: tag },
