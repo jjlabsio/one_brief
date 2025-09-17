@@ -5,6 +5,6 @@ export class CreateArticleDto implements Prisma.ArticleCreateInput {
   url: string;
   summary: string;
   source: string;
-  published_at?: string | Date;
+  published_at: string | Date | null;
   tagNames: string[];
 }

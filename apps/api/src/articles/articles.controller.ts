@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
@@ -9,7 +17,14 @@ export class ArticlesController {
 
   @Post()
   create(@Body() createArticleDto: CreateArticleDto) {
+    // try catch
     return this.articlesService.create(createArticleDto);
+  }
+
+  @Post('bulk')
+  createMany(@Body() createArticleDtos: CreateArticleDto[]) {
+    // try catch
+    return this.articlesService.createMany(createArticleDtos);
   }
 
   @Get()

@@ -7,7 +7,7 @@ import { CreateArticleDto } from './dto/create-article.dto';
 export class ArticlesService {
   constructor(private prisma: PrismaService) {}
 
-  create(createArticleDto: CreateArticleDto) {
+  async create(createArticleDto: CreateArticleDto) {
     const { tagNames, ...data } = createArticleDto;
 
     return this.prisma.article.create({
@@ -16,7 +16,7 @@ export class ArticlesService {
         url: data.url,
         summary: data.summary,
         source: data.source,
-        published_at: data.published_at ?? null,
+        published_at: data.published_at,
         tags: {
           connectOrCreate: tagNames.map((tag) => ({
             where: { name: tag },
@@ -28,6 +28,39 @@ export class ArticlesService {
         tags: true, // 생성 후 연결된 태그도 함께 반환
       },
     });
+  }
+
+  async createMany(createArticleDtos: CreateArticleDto[]) {
+    await this.prisma.article.createMany({
+      data: createArticleDtos.map(({ tagNames, ...data }) => ({
+        title: data.title,
+        url: data.url,
+        summary: data.summary,
+        source: data.summary,
+        published_at: data.published_at,
+      })),
+      skipDuplicates: true,
+    });
+
+    const connectTagRelation = createArticleDtos.map(({ tagNames, url }) => {
+      return this.prisma.article.update({
+        where: { url },
+        data: {
+          tags: {
+            connectOrCreate: tagNames.map((tag) => ({
+              where: { name: tag },
+              create: { name: tag },
+            })),
+          },
+        },
+        include: {
+          tags: true, // 생성 후 연결된 태그도 함께 반환
+        },
+      });
+    });
+
+    // 2. 태그 연결 (개별 처리 필요)
+    return this.prisma.$transaction(connectTagRelation);
   }
 
   findAll() {
