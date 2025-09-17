@@ -13,6 +13,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "db:seed": "npx prisma db seed",
     "db:generate": "npx prisma generate",
     "db:migrate": "npx prisma migrate dev --name",
     "db:push": "npx prisma db push"
@@ -24,6 +25,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^11.0.0",
     "@prisma/client": "^6.16.1",
+    "@prisma/extension-accelerate": "^2.0.2",
     "@repo/api": "workspace:*",
     "dotenv": "^17.2.2",
     "reflect-metadata": "^0.2.0",

@@ -41,6 +41,9 @@ importers:
       '@prisma/client':
         specifier: ^6.16.1
         version: 6.16.1(prisma@6.16.1)(typescript@5.5.4)
+      '@prisma/extension-accelerate':
+        specifier: ^2.0.2
+        version: 2.0.2(@prisma/client@6.16.1)
       '@repo/api':
         specifier: workspace:*
         version: link:../../packages/api
@@ -2088,7 +2091,7 @@ packages:
     peerDependencies:
       '@prisma/client': '>=4.16.1'
     dependencies:
-      '@prisma/client': 6.16.1(prisma@6.16.1)(typescript@5.8.2)
+      '@prisma/client': 6.16.1(prisma@6.16.1)(typescript@5.5.4)
     dev: false
 
   /@prisma/fetch-engine@6.16.1:
