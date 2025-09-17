@@ -28,6 +28,8 @@
     "@prisma/client": "^6.16.1",
     "@prisma/extension-accelerate": "^2.0.2",
     "@repo/api": "workspace:*",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
     "dotenv": "^17.2.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
