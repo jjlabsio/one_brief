@@ -36,7 +36,7 @@ export class ArticlesService {
         title: data.title,
         url: data.url,
         summary: data.summary,
-        source: data.summary,
+        source: data.source,
         published_at: data.published_at,
       })),
       skipDuplicates: true,
