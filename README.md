@@ -16,6 +16,19 @@
 
 ### feat/user-settings
 
+## db 규칙
+
+### mvp 단계
+
+- apps/web : pull만 가능
+- apps/api : push만 가능
+
+### mvp 이후
+
+> https://www.prisma.io/docs/orm/prisma-migrate/getting-started
+
+prisma migrate 이후 apps/api에서 push -> migrate로 변경
+
 ## What's inside?
 
 This Turborepo includes the following packages/apps:

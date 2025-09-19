@@ -20,12 +20,15 @@ test-results/
 playwright/.cache/
 playwright-report/
 
-
 # Turbo
 .turbo
 
 # Vercel
 .vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
 
 # Build Outputs
 .next/
@@ -60,3 +63,6 @@ pnpm-debug.log*
 # Misc
 .DS_Store
 *.pem
+
+# Prisma
+**/generated/prisma

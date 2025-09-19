@@ -1,0 +1,10 @@
+model Article {
+    id           Int          @id @default(autoincrement())
+    title        String
+    url          String       @unique
+    summary      String
+    tags         Preference[]
+    source       String
+    published_at DateTime?
+    created_at   DateTime     @default(now())
+}
