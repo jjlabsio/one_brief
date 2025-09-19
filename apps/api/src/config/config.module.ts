@@ -8,6 +8,9 @@ const envSchema = z.object({
 
   // CORS
   CORS_ORIGIN: z.string(),
+
+  // OPENAI
+  OPENAI_API_KEY: z.string(),
 });
 
 @Global()
